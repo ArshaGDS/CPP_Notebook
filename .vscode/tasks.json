@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "C/C++: g++.exe build active file",
+			"label": "Build with GCC 12.2.0",
 			"command": "C:\\mingw64\\bin\\g++.exe",
 			"args": [
 				"-fdiagnostics-color=always",
@@ -21,6 +21,27 @@
 			],
 			"group": "build",
 			"detail": "compiler: C:\\mingw64\\bin\\g++.exe"
+		},
+		{
+			"type": "cppbuild",
+			"label": "Build with Microsoft CL",
+			"command": "cl.exe",
+			"args": [
+				"/Zi",
+				"/EHsc",
+				"/std:c++latest",
+				"/nologo",
+				"/Fe${fileDirname}\\CL_Build\\${fileBasenameNoExtension}.exe",
+				"${file}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build",
+			"detail": "compiler: cl.exe"
 		}
 	]
 }

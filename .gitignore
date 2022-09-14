@@ -1,0 +1,9 @@
+.vscode/*
+GCC_Build/*
+CL_Build/*
+*vs*
+*Debug*
+*.exe
+*.pdb
+*.obj
+*.ilk

@@ -2,13 +2,17 @@
 
 int main()
 {
-    int number1 = 15;         // Decimal
-    int number2 = 017;        // Octal
-    int number3 = 0x0f;       // Hexadecimal
-    int number4 = 0b00001111; // Binary - C++ 14
+    int Zero{}; // Initializes to zero (by default)
+    std::cout << Zero << std::endl; // Output: 0
 
-    std::cout << "Number1: " << number1 << std::endl;
-    std::cout << "Number2: " << number2 << std::endl;
-    std::cout << "Number3: " << number3 << std::endl;
-    std::cout << "Number4: " << number4 << std::endl;
+    int One(1);
+    std::cout << One << std::endl; // Output: 1
+
+    int number(1.2); // Safe way
+    // int number2{1.2}; Compiler error: narrowing conversion of '1.2e+0' from 'double' to 'int'
+    std::cout << number << std::endl; // Output: 1, The decimal part will be removed
+
+    // -----------------------------------------
+
+    std::cout << "Size of int variable: " << sizeof(One) << std::endl;
 }

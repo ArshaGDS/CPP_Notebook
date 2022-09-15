@@ -1,22 +1,22 @@
 #include <iostream>
+#include <iomanip>
 
 int main()
 {
-    unsigned int One(1);
-    signed int NagativeOne(1);
+    float number1 (1.123456789f);
+    double number2 (1.123456789);
+    long double number3 (1.123456789);
 
-    short ShortVar(10);
-    short int ShortIntVar(10);
-    unsigned short int UnsignedShotInt(10);
+    std::cout << std::setprecision(10); // Set print decimal number in std::cout
 
-    long int LongInt(10);
-    unsigned long int UnsignedLongInt(10);
+    std::cout << "Number1: " << number1 << " Size: " << sizeof(number1) << std::endl;
+    std::cout << "Number2: " << number2 << " Size: " << sizeof(number2) << std::endl;
+    std::cout << "Number3: " << number3 << " Size: " << sizeof(number3) << std::endl;
 
-    std::cout << sizeof(One) << std::endl;
-    std::cout << sizeof(NagativeOne) << std::endl;
-    std::cout << sizeof(ShortVar) << std::endl;
-    std::cout << sizeof(ShortIntVar) << std::endl;
-    std::cout << sizeof(UnsignedShotInt) << std::endl;
-    std::cout << sizeof(LongInt) << std::endl;
-    std::cout << sizeof(UnsignedLongInt) << std::endl;
+    double number4 (1.222e8); // Multiply with 10 to the power of 8
+    std::cout << "Number4: " << number4 << " Size: " << sizeof(number4) << std::endl;
+
+    double number5 (1.222e-8); // Multiply with 10 to the power of -8
+    std::cout << "Number5: " << number5 << " Size: " << sizeof(number5) << std::endl;
+
 }

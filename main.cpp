@@ -1,21 +1,15 @@
 #include <iostream>
-#include <iomanip>
-
-// Can modify and initialized in compile time
-constinit int num2(5);
 
 int main()
 {
-    // Can't modify
-    const int num1(15);
-    const float PI(3.141516);
-    // Can't modify and initialized in compile time
-    constexpr int num3(3);
+    double num1 = 1.1, num2 = 2.2;
+    auto sum = static_cast<int>(num1 + num2);
+    std::cout << "Sum: " << sum << " Size: " << sizeof(sum) << std::endl;
 
-    std::cout << std::fixed; // show fix float value
-    std::cout << PI << std::endl;    
-    std::cout << num2 << std::endl;    
-    num2 = PI;
-    std::cout << num2 << std::endl;    
+    //----------------------------------
 
+    // not safe and old style (C style) cast
+    double PI {3.14};
+    int IntPI { (int)PI };
+    std::cout << "Int PI: " << IntPI << " Size: " << sizeof(IntPI) << std::endl;
 }

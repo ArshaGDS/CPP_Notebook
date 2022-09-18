@@ -2,34 +2,23 @@
 #include <iomanip>
 #include <bitset>
 
+constexpr unsigned short int WIDTH{20};
+
+constexpr unsigned int red_mask   {0xFF000000};
+constexpr unsigned int green_mask {0x00FF0000};
+constexpr unsigned int blue_mask  {0x0000FF00};
+constexpr unsigned int alpha_mask {0x000000FF};
+
+void SetColor(unsigned int Color)
+{
+    std::cout << std::left;
+    std::cout << std::setw(WIDTH) << ((Color & red_mask) >> 24) << std::endl; 
+    std::cout << std::setw(WIDTH) << ((Color & green_mask) >> 16) << std::endl; 
+    std::cout << std::setw(WIDTH) << ((Color & blue_mask) >> 8) << std::endl; 
+    std::cout << std::setw(WIDTH) << ((Color & alpha_mask) >> 0) << std::endl; 
+}
+
 int main()
 {            
-    constexpr unsigned short int WIDTH{21}; 
-
-    unsigned char var{0b00000000};
-
-    constexpr unsigned char bit_1{0b00000001};
-    constexpr unsigned char bit_2{0b00000010};
-    constexpr unsigned char bit_3{0b00000100};
-    constexpr unsigned char bit_4{0b00001000};
-    constexpr unsigned char bit_5{0b00010000};
-    constexpr unsigned char bit_6{0b00100000};
-    constexpr unsigned char bit_7{0b01000000};
-    constexpr unsigned char bit_8{0b10000000};    
-
-    std::cout << std::left;
-    std::cout << std::setw(WIDTH) << "var: " << std::setw(WIDTH) << std::bitset<sizeof(var) * 8>(var) << std::endl;
-    std::cout << std::setw(WIDTH) << "var: " << std::setw(WIDTH) << static_cast<int>(var) << std::endl;
-    
-    var |= (bit_1 | bit_3 | bit_5);
-    std::cout << std::setw(WIDTH) << "var: " << std::setw(WIDTH) << std::bitset<sizeof(var) * 8>(var) << std::endl;
-    std::cout << std::setw(WIDTH) << "var: " << std::setw(WIDTH) << static_cast<int>(var) << std::endl;
-    // Reset to default
-    var &= ~(bit_1 | bit_3 | bit_5);
-    std::cout << std::setw(WIDTH) << "var: " << std::setw(WIDTH) << std::bitset<sizeof(var) * 8>(var) << std::endl;
-    std::cout << std::setw(WIDTH) << "var: " << std::setw(WIDTH) << static_cast<int>(var) << std::endl;
-
-    //-------------------------------------------------------------------------------------------
-
-
+   SetColor(red_mask | alpha_mask);
 }

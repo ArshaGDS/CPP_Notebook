@@ -1,17 +1,14 @@
 #include <iostream>
+#include <iomanip>
 #include <bitset>
 
 int main()
 {                  
-    short int Number = 3;
+    unsigned short int num1{2};
+    unsigned short int num2{2};
+    constexpr unsigned short int WIDTH{10};
 
-    // Shifting right, divides by 2^n
-    short int Right = static_cast<short int>(Number >> 1);
-    std::cout << "Right (Dec): " << Right << " (Bin): " << std::bitset<16>(Right) << std::endl;
-
-    // Shifting left, multiplies by 2^n
-    short int Left = static_cast<short int>(Number << 1);
-    std::cout << "Left  (Dec): " << Left << " (Bin): " << std::bitset<16>(Left) << std::endl;
-
-    return 0;
+    std::cout << "Num1: " << std::setw(WIDTH) << std::bitset<sizeof(num1) * 8>(num1) << std::endl;
+    std::cout << "Num2: " << std::setw(WIDTH) << std::bitset<sizeof(num2) * 8>(num2) << std::endl;
+    std::cout << "Sum : " << std::setw(WIDTH) << std::bitset<sizeof(num2) * 8>(num1 ^ num2) << std::endl;
 }

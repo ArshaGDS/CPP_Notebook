@@ -2,22 +2,14 @@
 
 int main()
 {          
-    unsigned short int Score{18};  
-    switch(Score)
+    int ItemCount{-3};
+    if (ItemCount)
     {
-        case 20 : {
-            std::cout << "Good job" << std::endl;
-        }
-        break;
-        case 15 : { std::cout << "Not bad" << std::endl; }
-        break;
-        case 13 :
-        case 12 : {}
-        case 11 :  std::cout << "Ridi" << std::endl; 
-        break;
-        default : {
-            std::cout << "Khode khari" << std::endl;
-        }
-        break;
+        std::cout << "We have items in the bag" << std::endl;
     }
+    else
+    {
+        std::cout << "We have no item in the bag" << std::endl;
+    }
+    std::cout << static_cast<bool>(ItemCount) << std::endl;
 }

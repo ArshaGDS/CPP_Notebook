@@ -2,28 +2,31 @@
 
 int main()
 {          
-    constexpr unsigned short int Pen{10};
-    constexpr unsigned short int Eraser{11};
-    constexpr unsigned short int Pencil{12};
-
-    if(float Number{1.2f}; Pen < Pencil)
+    for (/* Initialize with zero */unsigned int i{} ; i < /*Hard code*/10; i++)
     {
-        std::cout << "Float number is: " << Number << std::endl;
+        std::cout << "I Love C++" << std::endl;
     }
+    std::cout << "-------------------" << std::endl;
 
-    constexpr unsigned short int Tool{Eraser};
-    switch (short int Number{-15}; Tool)
+    //------------------------------------------------------
+
+    /*
+        size_t size is different in compilers
+    */
+
+    for (size_t i{} ; i < 10; i++)
     {
-    case Pen:
-        /* code */
-        break;
-    case Eraser:
-        /* code */
-        break;
-    case Pencil:
-        /* code */
-        break;
-    default:
-        break;
+        std::cout << "I Love C++" << std::endl;
     }
+    std::cout << "-------------------" << std::endl;
+
+    //------------------------------------------------------
+
+    // Without hard code
+    const unsigned int COUNT{10};
+    for (unsigned int i{} ; i < COUNT; i++)
+    {
+        std::cout << "I Love C++" << std::endl;
+    }
+    std::cout << "-------------------" << std::endl;
 }

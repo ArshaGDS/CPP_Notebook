@@ -3,31 +3,22 @@
 
 int main()
 {              
-    int array[] {1, 2, 3, 4, 5, 6};
+    char message1[5] {'A', 'r', 's', 'h', 'a'};
+    char message2[6] {'A', 'r', 's', 'h', 'a'}; // Index 6 is auto filled by compiler with null
+    char message3[6] {'A', 'r', 's', 'h', 'a', '\0'}; 
 
-    std::cout << "Index 0: " << array[0] << std::endl;
-    std::cout << "Index 1: " << array[1] << std::endl;
-    std::cout << "Index 2: " << array[2] << std::endl;
-    array[2] = 5;
-    std::cout << "Index 2: " << array[2] << std::endl;
+    std::cout << "Message 1: " << message1 << std::endl;
+    std::cout << "Message 2: " << message2 << std::endl;
+    std::cout << "Message 3: " << message3 << std::endl;
 
-    unsigned short int WIDTH{30};
-    std::cout << std::left;
-    std::cout << std::setw(WIDTH) << "Size of Index 0: " << std::setw(WIDTH) << sizeof(array[0]) << std::endl;
-    std::cout << std::setw(WIDTH) << "Size of array: " << std::setw(WIDTH) << sizeof(array) << std::endl;
-    std::cout << std::setw(WIDTH) << "Item count: " << std::setw(WIDTH) << (sizeof(array) / sizeof(array[0])) << std::endl;
-    std::cout << std::setw(WIDTH) << "Item count with std library: "<< std::setw(WIDTH)  << std::size(array) << std::endl;
+    message2[4] = 'A';
+    std::cout << "Message 2: " << message2 << std::endl;
 
-    for(auto index : array)
+    char message4[] {"Arsha"}; // Best way to init char array (Auto append null in end of string)
+
+    for (auto index : message4)
     {
-        std:: cout << index;
+        std::cout << index;
     }
-
-    std:: cout << std::endl;
-
-    for (unsigned short int index = 0; index < std::size(array); index++)
-    {
-        std:: cout << array[index];
-    }
-    
+    std::cout << std::endl;
 }

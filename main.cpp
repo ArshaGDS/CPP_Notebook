@@ -3,22 +3,26 @@
 
 int main()
 {              
-    char message1[5] {'A', 'r', 's', 'h', 'a'};
-    char message2[6] {'A', 'r', 's', 'h', 'a'}; // Index 6 is auto filled by compiler with null
-    char message3[6] {'A', 'r', 's', 'h', 'a', '\0'}; 
+    // Wrong way, because the answer is always the same
+    std::cout << "RAND_MAX: " << RAND_MAX << std::endl; // 32767 in GCC compiler and 64bit system
 
-    std::cout << "Message 1: " << message1 << std::endl;
-    std::cout << "Message 2: " << message2 << std::endl;
-    std::cout << "Message 3: " << message3 << std::endl;
+    int randomNumber1 = std::rand(); // between 0 and RAND_MAX
+    std::cout << "randomNumber1: " << randomNumber1 << std::endl;
 
-    message2[4] = 'A';
-    std::cout << "Message 2: " << message2 << std::endl;
+    int randomNumber2 = std::rand() % 11; // between 0 and 10
+    std::cout << "randomNumber2: " << randomNumber2 << std::endl;
 
-    char message4[] {"Arsha"}; // Best way to init char array (Auto append null in end of string)
+    int randomNumber3 = (std::rand() % 11) + 1; // between 1 and 10
+    std::cout << "randomNumber3: " << randomNumber3 << std::endl;
 
-    for (auto index : message4)
+    //-----------------------------------------------------------------
+
+    
+    std::srand(std::time(0));
+    for (size_t i = 0; i < 10; i++)
     {
-        std::cout << index;
+        std::cout << std::rand() % 20 << " . ";
     }
     std::cout << std::endl;
+
 }

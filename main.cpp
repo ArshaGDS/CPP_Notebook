@@ -1,20 +1,25 @@
 #include <iostream>
-#include <cctype>
-#include <cstring>
+#include <string>
 
 int main()
 {
-    const char* MessageStr {"Hello World :D"};
-    const char* MessageStr2{"Hello World :D"};
-    const char* MessageStr3{"Hello World"};
+    std::string Str1{"Hello"};
+    std::string Str2{"World"};
 
-    std::cout << "std::strcmp(MessageStr, MessageStr2)      : " << std::strcmp(MessageStr, MessageStr2) << std::endl;
-    std::cout << "std::strcmp(MessageStr, MessageStr3)      : " << std::strcmp(MessageStr, MessageStr3) << std::endl;
+    std::string Message1{Str1 + Str2};
+    std::string Message2{Str1 + " " + Str2};
+    std::string Message3{Str1.append(" " + Str2)};
+    std::string Message4{"Hello" " " "World"};
 
-    size_t n{3};
-    std::cout << "std::strncmp(MessageStr2, MessageStr3, n) : " << std::strncmp(MessageStr2, MessageStr3, n) << std::endl;
+    std::string Text1{"BlaBlaBlaBla"};
+    std::string Text2{Text1.append(5, '!')};
+    std::string Text3{Str1.append(Text2, Text1.length() - 5, 2)};
 
-    const char* result{MessageStr};
-    char target{'l'};
-    std::cout << std::strchr(MessageStr, target) << std::endl;
+    std::cout << Message1 << std::endl;
+    std::cout << Message2 << std::endl;
+    std::cout << Message3 << std::endl;
+    std::cout << Message4 << std::endl;
+
+    std::cout << Text2 << std::endl;
+    std::cout << Text3 << std::endl;
 }

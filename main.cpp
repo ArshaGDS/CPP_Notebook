@@ -3,25 +3,15 @@
 
 int main()
 {
-    std::string Empty;
-    std::string Initialized{};
-    std::string Str{"Str"};
-    std::string Str2{"Str"};
-    std::string Str3{"StringStringStringStringStringStringStringString"};
+    std::string StrNum1{"1"};
+    std::string StrNum2{"1.2f"};
+    std::string StrNum3{"1.23456789"};
 
-    std::cout << std::boolalpha << Empty.empty() << std::endl;
-    std::cout << std::boolalpha << Initialized.empty() << std::endl;
-    std::cout << std::boolalpha << Str.empty() << std::endl;
+    int Num1 = std::stoi(StrNum1);
+    int Num2 = std::stof(StrNum2);
+    int Num3 = std::stod(StrNum3);
 
-    std::cout << Empty.capacity() << std::endl;
-    std::cout << Initialized.capacity() << std::endl;
-    std::cout << Str.capacity() << std::endl;
-    std::cout << Str2.capacity() << std::endl; 
-    std::cout << Str3.capacity() << std::endl;
-
-    std::string Str4{"Str"};
-    Str4.reserve(100);
-    std::cout << Str4.capacity() << std::endl;
-    Str4.shrink_to_fit();
-    std::cout << Str4.capacity() << std::endl;
+    std::cout << "Num1: " << sizeof(Num1) << std::endl;
+    std::cout << "Num2: " << sizeof(Num2) << std::endl;
+    std::cout << "Num3: " << sizeof(Num3) << std::endl;
 }

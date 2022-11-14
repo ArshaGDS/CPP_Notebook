@@ -1,18 +1,37 @@
 #include <iostream>
 #include <string>
 
+enum class Month 
+{
+    Jan, January   = Jan,
+    Feb, February  = Feb,
+    Mar, March     = Mar,
+    Apr, April     = Apr,
+    May,
+    Jun, June      = Jun,
+    Aug, August    = Aug,
+    Sep, September = Sep,
+    Oct, October   = Oct,
+    Nov, November  = Nov,
+    Dec, December  = Dec
+};
+
+std::string_view MonthToString(Month month)
+{
+    switch (month)
+    {
+        using enum Month;
+        case Jan : return "January";
+        case Feb : return "February";
+        case Mar : return "March";
+        case Apr : return "April";
+        // ...
+        default  : return "Invalid input";
+    }
+}
+
 int main()
 {
-    std::string Str{"Hello World!"};
-    std::string_view StrView{Str};
-    std::string_view StrView2{StrView};
-
-    std::cout << "Str: " << Str << std::endl;
-    std::cout << "StrView: " << StrView << std::endl;
-
-    StrView.remove_prefix(5);
-    std::cout << StrView << std::endl;
-
-    StrView2.remove_suffix(6);
-    std::cout << StrView2 << std::endl;
+    Month month {Month::Apr};
+    std::cout << MonthToString(month) << std::endl;
 }

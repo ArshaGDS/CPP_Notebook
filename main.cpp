@@ -2,36 +2,32 @@
 
 int main()
 {    
-    []()
-    {
-        std::cout << "Hi, I'm lambda function :D" << std::endl;
-    };
 
-    auto fun2 = []()
-    {
-        std::cout << "Hi from fun2" << std::endl;
-    };
-    fun2();
+    int A = 10, B = 20;
 
-    // Call lambda function directly after definition
-    []()
+    [A, B]()
     {
-        std::cout << "Execute after definition" << std::endl;
+        // A++; Compiler error
+        std::cout << "A: " << A << " B: " << B << std::endl;
     }();
 
-    [](int Age, std::string Name)
+    [&A, &B]()
     {
-        std::cout << "Name: " << Name << " Age: " << Age << std::endl;
-    }(23, std::string{"Arsha"});
+        A++;
+        std::cout << "A: " << A << " B: " << B << std::endl;
+    }();
 
-    int IntSum = [](int A, int B)
+    // Access by copy
+    [=]()
     {
-        return A + B;
-    }(4, 2);
+        // B++; Compiler error
+        std::cout << "A: " << A << " B: " << B << std::endl;
+    }();
 
-    // Input type: Int, Output type: Float
-    float FloatSum = [](int A, int B) -> float
-    {
-        return A + B;
-    }(4.f, 2.f);
+    // Access by references
+    [&]()
+    {        
+        B++;
+        std::cout << "A: " << A << " B: " << B << std::endl;
+    }();
 }

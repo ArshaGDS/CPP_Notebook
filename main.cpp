@@ -1,47 +1,37 @@
 #include <iostream>
-#include <iomanip>
 
 int main()
 {    
-    int Num{123};
-    int NumRef{Num};
+    []()
+    {
+        std::cout << "Hi, I'm lambda function :D" << std::endl;
+    };
 
-    auto AutVar{Num};
-    auto AutVar2{NumRef};
+    auto fun2 = []()
+    {
+        std::cout << "Hi from fun2" << std::endl;
+    };
+    fun2();
 
-    int WIDTH{15};
-    std::cout << std::left;
-    std::cout << std::setw(WIDTH) << "Num:"     << Num     << std::endl;
-    std::cout << std::setw(WIDTH) << "NumRef:"  << NumRef  << std::endl;
-    std::cout << std::setw(WIDTH) << "AutVar:"  << AutVar  << std::endl;
-    std::cout << std::setw(WIDTH) << "AutVar2:" << AutVar2 << std::endl;
-    
-    auto& AutRef{Num};
-    auto& AutRef2{NumRef};
+    // Call lambda function directly after definition
+    []()
+    {
+        std::cout << "Execute after definition" << std::endl;
+    }();
 
-    std::cout << std::setw(WIDTH) << "AutRef:"  << AutRef  << std::endl;
-    std::cout << std::setw(WIDTH) << "AutRef2:" << AutRef2 << std::endl;
+    [](int Age, std::string Name)
+    {
+        std::cout << "Name: " << Name << " Age: " << Age << std::endl;
+    }(23, std::string{"Arsha"});
 
-    std::cout << "###################################################" << std::endl;
+    int IntSum = [](int A, int B)
+    {
+        return A + B;
+    }(4, 2);
 
-    AutVar++;
-    std::cout << std::setw(WIDTH) << "Num:"     << Num     << std::endl;
-    std::cout << std::setw(WIDTH) << "NumRef:"  << NumRef  << std::endl;
-    std::cout << std::setw(WIDTH) << "AutVar:"  << AutVar  << std::endl;
-    std::cout << std::setw(WIDTH) << "AutVar2:" << AutVar2 << std::endl;
-    std::cout << std::setw(WIDTH) << "AutRef:"  << AutRef  << std::endl;
-    std::cout << std::setw(WIDTH) << "AutRef2:" << AutRef2 << std::endl;
-    AutVar--;
-
-    std::cout << "###################################################" << std::endl;
-
-    AutRef++;
-    std::cout << std::setw(WIDTH) << "Num:"     << Num     << std::endl;
-    std::cout << std::setw(WIDTH) << "NumRef:"  << NumRef  << std::endl;
-    std::cout << std::setw(WIDTH) << "AutVar:"  << AutVar  << std::endl;
-    std::cout << std::setw(WIDTH) << "AutVar2:" << AutVar2 << std::endl;
-    std::cout << std::setw(WIDTH) << "AutRef:"  << AutRef  << std::endl;
-    std::cout << std::setw(WIDTH) << "AutRef2:" << AutRef2 << std::endl;
-
-    std::cout << "###################################################" << std::endl;
+    // Input type: Int, Output type: Float
+    float FloatSum = [](int A, int B) -> float
+    {
+        return A + B;
+    }(4.f, 2.f);
 }

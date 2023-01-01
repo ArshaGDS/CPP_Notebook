@@ -1,33 +1,25 @@
 #include <iostream>
 
+template <typename T>
+T Maximum(T a, T b)
+{
+    return (a > b) ? a : b;
+}
+
+template <typename T0, typename T1>
+T0 Sum(T0 a, T1 b)
+{
+    return a + b;
+}
+
+
 int main()
 {    
+    int a{5}, b{10};
+    double c{1.5}, d{1.8};
+    std::cout << Maximum(a, b) << std::endl;
+    std::cout << Maximum(c, d) << std::endl;
 
-    int A = 10, B = 20;
-
-    [A, B]()
-    {
-        // A++; Compiler error
-        std::cout << "A: " << A << " B: " << B << std::endl;
-    }();
-
-    [&A, &B]()
-    {
-        A++;
-        std::cout << "A: " << A << " B: " << B << std::endl;
-    }();
-
-    // Access by copy
-    [=]()
-    {
-        // B++; Compiler error
-        std::cout << "A: " << A << " B: " << B << std::endl;
-    }();
-
-    // Access by references
-    [&]()
-    {        
-        B++;
-        std::cout << "A: " << A << " B: " << B << std::endl;
-    }();
+    std::cout << Sum(a, d) << std::endl;
+    std::cout << Sum<double>(a, b) << std::endl;
 }

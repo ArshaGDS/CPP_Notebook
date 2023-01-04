@@ -7,6 +7,12 @@ T Maximum(T a, T b)
     return (a > b) ? a : b;
 }
 
+template <typename T>
+T* Maximum(T* a, T* b)
+{
+    return (*a > *b) ? a : b;
+}
+
 // Template specialization
 template <>
 const char* Maximum<const char*>(const char* a, const char* b)
@@ -26,6 +32,9 @@ int main()
     double c{1.5}, d{1.8};
     std::cout << Maximum(a, b) << std::endl;
     std::cout << Maximum(c, d) << std::endl;
+
+    std::cout << Maximum(&a, &b) << " " << *Maximum(&a, &b) << std::endl;
+    std::cout << Maximum(&c, &d) << " " << *Maximum(&c, &d) << std::endl;
 
     std::cout << Sum(a, d) << std::endl;
     std::cout << Sum<double>(a, b) << std::endl;

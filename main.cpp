@@ -1,29 +1,20 @@
 #include <iostream>
-#include <type_traits>
 
 #define cout std::cout
 #define endl std::endl
 
-template<typename T>
-void func(T n)
+struct Vector3
 {
-   if constexpr (std::is_integral_v<T>)
-   {
-        cout << "Integral" << endl;
-   }
-   else if constexpr (std::is_floating_point_v<T>)
-   {
-        cout << "Foating point" << endl;        
-   }
-   else
-   {
-       static_assert(std::is_integral_v<T> || std::is_floating_point_v<T>, "Argument must be integral or floating point.");                      
-   }
-}
-
+    float X;
+    float Y;
+    float Z;
+};
 
 int main()
 {
-    //func(2);
-    func(2.5);
+    Vector3 vector{200.f, 15.f, 10.f};
+    auto [a, b, c] = vector;
+    cout << a << endl;
+    cout << b << endl;
+    cout << c << endl;
 }
